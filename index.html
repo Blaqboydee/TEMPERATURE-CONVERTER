@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body{
+        display: flex;
+      }
+
+      .container2{
+        background-color: black;
+      }
+      .container{
+        width: 100%;
+        display: flex;
+        background-color: rgba(0, 0, 0, 0.839);
+        background-image: url(./temperature.png);
+        background-blend-mode: darken;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        flex-direction: column;
+        padding-top: 100px;
+        align-items: center;
+        height: 100vh;
+        gap: 20px;
+        border: 1px solid black;
+      }
+
+      h3 {
+        color: white;
+        font-family: "Poppins", sans-serif;
+        font-size: 40px;
+        text-align: center;
+      }
+
+      #tempF {
+        height: 40px;
+        padding: 5px;
+        width: 30%;
+        outline: 0;
+        border: 0;
+        font-family: "Poppins", sans-serif;
+      }
+
+      ::placeholder {
+        color: rgba(27, 28, 27, 0.542);
+        font-style: italic;
+      }
+
+      #output {
+        background-color: rgba(255, 255, 255, 0.826);
+        color: black;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        width: 60%;
+        padding: 30px;
+        text-align: center;
+      }
+
+      button {
+        padding: 10px;
+        color: white;
+        font-family: "Poppins", sans-serif;
+        background-color: red;
+        border: none;
+        transition: all 1s ease-in-out;
+        font-weight: 600;
+      }
+
+      button:hover {
+        background-color: blue;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Temperature Converter</h3>
+      <input type="number" id="tempF" placeholder="Enter temperature in °C" />
+      <button onclick="convert()">Temperature in °F</button>
+      <div id="output"></div>
+    </div>
+  </body>
+</html>
+
+<script>
+  function convert() {
+    let myTemperature = tempF.value;
+
+    if (myTemperature == '') {
+        alert('Enter temperature value!')
+    } else if (myTemperature < '15'){
+        output.innerHTML = `${myTemperature}°C is ${convertTemp(myTemperature)} degrees in Fahrenheit, i.e ${convertTemp(myTemperature)}°F. It is cold outside.`;
+        tempF.value = '';
+    } else if(myTemperature > '30'){
+        output.innerHTML = `${myTemperature}°C is ${convertTemp(myTemperature)} degrees in Fahrenheit, i.e ${convertTemp(myTemperature)}°F. It is hot outside.`;
+        tempF.value = '';
+    } else{
+        output.innerHTML = `${myTemperature}°C is ${convertTemp(myTemperature)} degrees in Fahrenheit, i.e ${convertTemp(myTemperature)}°F. The temperature is mild.`;
+        tempF.value = '';
+    }
+  }
+  function convertTemp(temp) {
+    return (temp * 9) / 5 + 32;
+  }
+
+
+
+
+
+
+
+
+
+//   function convertToFahreheit() {
+//     let temperatureValue = tempInF.value;
+    
+//   console.log(temperatureValue);
+
+//   output2.innerHTML = (temperatureValue * 9) / 5 + 32;
+  
+//   }
+</script>
